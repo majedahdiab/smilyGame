@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnUp, btnDown, btnLeft, btnRight;
     private ImageView img;
     private int count=0;
-    private TextView c;
+    private TextView c,gm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,14 +28,22 @@ public class MainActivity extends AppCompatActivity {
         btnLeft = findViewById(R.id.btnLeft);
         btnRight = findViewById(R.id.button4);
         img = findViewById(R.id.imageView3);
+        c=findViewById(R.id.c);
+
         btnDown.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 img.setY(img.getY() +50);
-                if(img.getY()>413){
+                if(img.getY()>800){
                     img.setImageResource(R.drawable.snoopy);
                     count=count+1;
                     c.setText(count+" ");
+                    if(count==5){
+                        finish();
+                        System.exit(0);
+                    }
+
+
                 }
                 else
                     img.setImageResource(R.drawable.snoop);
@@ -45,10 +53,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 img.setY(img.getY() -50);
-                if(img.getY()<53){
+                if(img.getY()<10){
                     img.setImageResource(R.drawable.snoopy);
                      count=count+1;
-                     c.setText(count+" ");}
+                     c.setText(count+" ");
+                    if(count==5) {
+                        finish();
+                        System.exit(0);
+                    }
+                }
                 else
                     img.setImageResource(R.drawable.snoop);
             }
@@ -57,8 +70,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 img.setX(img.getX() -50);
-                if(img.getX()<44)
+                if(img.getX()<44){
                     img.setImageResource(R.drawable.snoopy);
+                    count=count+1;
+                    c.setText(count+" ");
+                    if(count==5) {
+                        finish();
+                        System.exit(0);                    }
+                }
                 else
                     img.setImageResource(R.drawable.snoop);
             }
@@ -67,8 +86,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 img.setX(img.getX() +50);
-                if(img.getX()>360+89)
+                if(img.getX()>630){
                     img.setImageResource(R.drawable.snoopy);
+                    count=count+1;
+                    c.setText(count+" ");
+                    if(count==5) {
+                        finish();
+                        System.exit(0);
+                    }
+                }
                 else
                     img.setImageResource(R.drawable.snoop);
             }
